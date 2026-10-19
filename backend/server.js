@@ -5,6 +5,7 @@ const db = require("./db/connection");
 const auth = require("./auth");
 
 const app = express();
+app.set("trust proxy", 1);   // the host puts a proxy in front of your app
 app.use(express.json({ limit: "10kb" }));
 
 // Serve your website files
@@ -51,4 +52,8 @@ app.get("/api/recipes/:id", (req, res) => {
     res.json(toRecipe(row));
 });
 
-app.listen(3000, () => console.log("Running at http://localhost:3000"));
+// Visitors who open the bare address land on your home page
+app.get("/", (req, res) => res.redirect("/HTML/home.html"));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Running on port " + PORT));
