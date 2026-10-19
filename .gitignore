@@ -1,0 +1,4 @@
+node_modules
+backend/db/recipes.db*
+.env
+.DS_Store

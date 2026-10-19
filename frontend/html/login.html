@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in | Craving Recipes</title>
+    <link rel="icon" type="image/jpeg" href="images/Logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Nunito+Sans:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div id="site-header"></div>
+
+    <main id="container">
+        <section class="auth_page">
+            <div class="auth_card">
+                <h1 id="authHeading">Welcome back</h1>
+                <p class="auth_sub" id="authSub">Log in to see your saved recipes.</p>
+
+                <div class="auth_tabs" role="tablist">
+                    <button type="button" class="auth_tab active" id="tabLogin" role="tab" aria-selected="true">Log in</button>
+                    <button type="button" class="auth_tab" id="tabSignup" role="tab" aria-selected="false">Sign up</button>
+                </div>
+
+                <form class="auth_form" id="authForm" novalidate>
+                    <div class="field" id="nameField" hidden>
+                        <label for="authName">Name</label>
+                        <input type="text" id="authName" autocomplete="name" placeholder="Your name">
+                    </div>
+
+                    <div class="field">
+                        <label for="authEmail">Email</label>
+                        <input type="email" id="authEmail" autocomplete="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="authPassword">Password</label>
+                        <div class="password_wrap">
+                            <input type="password" id="authPassword" autocomplete="current-password"
+                                   placeholder="At least 8 characters" required>
+                            <button type="button" class="show_pw" id="showPw" aria-label="Show password">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="field" id="confirmField" hidden>
+                        <label for="authConfirm">Confirm password</label>
+                        <input type="password" id="authConfirm" autocomplete="new-password" placeholder="Repeat your password">
+                    </div>
+
+                    <p class="auth_message" id="authMessage" role="alert"></p>
+
+                    <button class="button auth_submit" type="submit" id="authSubmit">Log in</button>
+                </form>
+
+                <p class="auth_switch" id="authSwitch">
+                    New here? <a href="#" id="switchToSignup">Create an account</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="../js/favorites.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+
+</html>

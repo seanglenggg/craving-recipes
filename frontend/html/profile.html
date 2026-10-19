@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My profile | Craving Recipes</title>
+    <link rel="icon" type="image/jpeg" href="images/Logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Nunito+Sans:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div id="site-header"></div>
+
+    <main id="container">
+        <section class="profile_page">
+
+            <!-- Shown when logged out -->
+            <div class="saved_empty" id="profileLoggedOut" hidden>
+                <h1 class="profile_title">My profile</h1>
+                <p>Please log in to see your profile.</p>
+                <a class="button" href="login.html?next=profile.html">Log in</a>
+            </div>
+
+            <!-- Shown when logged in -->
+            <div id="profileContent" hidden>
+
+                <div class="profile_head">
+                    <div class="avatar big" id="profileAvatar" aria-hidden="true"></div>
+                    <div class="profile_who">
+                        <h1 id="profileName"></h1>
+                        <p id="profileEmail"></p>
+                        <p class="profile_since" id="profileSince"></p>
+                    </div>
+                    <button type="button" class="auth_btn logout" id="logoutProfile">Log out</button>
+                </div>
+
+                <div class="profile_stats">
+                    <div class="stat">
+                        <strong id="statSaved">0</strong>
+                        <span>Saved recipes</span>
+                    </div>
+                    <div class="stat">
+                        <strong id="statCuisines">0</strong>
+                        <span>Cuisines saved</span>
+                    </div>
+                    <div class="stat">
+                        <strong id="statTop">—</strong>
+                        <span>Top cuisine</span>
+                    </div>
+                </div>
+
+                <div class="profile_section_head">
+                    <h2>Your saved recipes</h2>
+                    <a class="more_btn" id="viewAllSaved" href="saved.html" hidden>View all <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="recipe_grid" id="profileSaved"></div>
+                <div class="saved_empty" id="profileEmpty" hidden>
+                    <p>You have not saved any recipes yet. Tap the heart on a recipe to keep it here.</p>
+                    <a class="button" href="category.html?type=all">Browse recipes</a>
+                </div>
+
+                <div class="profile_section_head">
+                    <h2>Account details</h2>
+                </div>
+                <form class="profile_form" id="nameForm" novalidate>
+                    <div class="field">
+                        <label for="nameInput">Name</label>
+                        <input type="text" id="nameInput" autocomplete="name">
+                    </div>
+                    <div class="field">
+                        <label for="emailShown">Email</label>
+                        <input type="email" id="emailShown" disabled>
+                    </div>
+                    <p class="auth_message" id="nameMessage" role="status"></p>
+                    <button class="button auth_submit" type="submit">Save changes</button>
+                </form>
+
+                <div class="profile_section_head">
+                    <h2>Manage</h2>
+                </div>
+                <button type="button" class="auth_btn logout" id="clearSaved">Clear all saved recipes</button>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="../js/recipes.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/favorites.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/profile.js"></script>
+
+</body>
+
+</html>
