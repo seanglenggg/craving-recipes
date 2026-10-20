@@ -53,7 +53,7 @@ app.get("/api/recipes/:id", (req, res) => {
 });
 
 // Visitors who open the bare address land on your home page
-app.get("/", (req, res) => res.redirect("/HTML/home.html"));
+app.get("/", (req, res) => "/html/home.html";
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("Running on port " + PORT));
