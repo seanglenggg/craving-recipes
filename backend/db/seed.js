@@ -10,9 +10,12 @@ vm.runInNewContext(code + "\nthis.RECIPES = RECIPES;", sandbox);
 const recipes = sandbox.RECIPES;
 
 const insert = db.prepare(`
-    INSERT OR REPLACE INTO recipes
-    (id, title, description, image, category, cuisine, ingredients, steps)
+    INSERT INTO recipes (id, title, description, image, category, cuisine, ingredients, steps)
     VALUES (@id, @title, @description, @image, @category, @cuisine, @ingredients, @steps)
+    ON CONFLICT(id) DO UPDATE SET
+        title = excluded.title, description = excluded.description, image = excluded.image,
+        category = excluded.category, cuisine = excluded.cuisine,
+        ingredients = excluded.ingredients, steps = excluded.steps
 `);
 
 const seedAll = db.transaction(list => {
